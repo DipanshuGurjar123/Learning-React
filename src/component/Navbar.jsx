@@ -4,18 +4,19 @@ import Home from '../pages/Home'
 import About from '../pages/About'
 import AppleCounter from './AppleCounter'
 import Contact from '../pages/Contact'
+import Courses from '../pages/Courses'
 
 const Navbar = () => {
     return (
         <div>
             {/* Navbar */}
-            <nav className='flex justify-between'>
+            <nav className='flex justify-between bg-amber-200'>
                 <h1 className='p-4'>Wlcome to my page</h1>
                 <div className='pt-4 pr-10 flex gap-20'>
                     <Link to="/">Home</Link>
                     <Link to="counter">AppleCounter</Link>
                     <Link to="about">About</Link>
-                    <Link to="contact">Contact</Link>
+                    <Link to="courses">Courses</Link>
                 </div>
             </nav>
         </div>

@@ -3,6 +3,7 @@ import AppleCounter from '../component/AppleCounter'
 import About from './About'
 import Navbar from '../component/Navbar'
 import Contact from './Contact'
+import Courses from './Courses'
 
 
 const Home = () => {
@@ -11,7 +12,8 @@ const Home = () => {
             
             <AppleCounter />
             <About />
-            <Contact />   
+            <Contact />  
+            <Courses/> 
         </div>
     )
 }
