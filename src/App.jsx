@@ -38,7 +38,9 @@ const App = () => {
       // {/* <AppleCounter /> */}
       // {/* <AppleBasket /> */}
     // </div>
-
+    
+    
+    // Routing //
     <div>
       <Navbar/>
       <Routes>

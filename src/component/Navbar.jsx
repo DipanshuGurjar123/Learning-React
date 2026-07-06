@@ -8,6 +8,7 @@ import Contact from '../pages/Contact'
 const Navbar = () => {
     return (
         <div>
+            {/* Navbar */}
             <nav className='flex justify-between'>
                 <h1 className='p-4'>Wlcome to my page</h1>
                 <div className='pt-4 pr-10 flex gap-20'>
