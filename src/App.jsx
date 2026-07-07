@@ -13,6 +13,8 @@ import Courses from './pages/Courses'
 import MernCourse from './pages/MernCourse'
 import DataAnalysis from './pages/DataAnalysis'
 import PageNotFound from './pages/PageNotFound'
+import ThemeProvider from './context/ThemeProvider'
+import ContextThemeSetting from './component/ContextThemeSetting'
 
 const App = () => {
 
@@ -61,6 +63,10 @@ const App = () => {
         <Route path="*" element={<PageNotFound/>}/>
       </Routes>
       {/* <Home/> */}
+
+      <ThemeProvider>
+        <ContextThemeSetting />
+      </ThemeProvider>
     </div>
   )
 
