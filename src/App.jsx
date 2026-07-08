@@ -15,6 +15,8 @@ import DataAnalysis from './pages/DataAnalysis'
 import PageNotFound from './pages/PageNotFound'
 import ThemeProvider from './context/ThemeProvider'
 import ContextThemeSetting from './component/ContextThemeSetting'
+import ContextLearn from './component/ContextLearn'
+import { UserProvider } from './context/LearnContext'
 
 const App = () => {
 
@@ -48,7 +50,7 @@ const App = () => {
 
     // Routing //
     <div>
-      <Navbar />
+      {/* <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="courses" element={<Outlet />}>
@@ -61,12 +63,16 @@ const App = () => {
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
         <Route path="*" element={<PageNotFound/>}/>
-      </Routes>
+      </Routes> */}
       {/* <Home/> */}
 
-      <ThemeProvider>
+      {/* <ThemeProvider>
         <ContextThemeSetting />
-      </ThemeProvider>
+      </ThemeProvider> */}
+
+      <UserProvider>
+        <ContextLearn />
+      </UserProvider>
     </div>
   )
 
