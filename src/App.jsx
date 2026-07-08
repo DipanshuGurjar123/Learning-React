@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Login from './component/Login'
 import Logout from './component/Logout'
 import AppleCounter from './component/AppleCounter'
@@ -17,8 +17,12 @@ import ThemeProvider from './context/ThemeProvider'
 import ContextThemeSetting from './component/ContextThemeSetting'
 import ContextLearn from './component/ContextLearn'
 import { UserProvider } from './context/LearnContext'
+import { DataContext, DataProvider } from './context/Context'
+import ClientContext from './component/ClientContext'
+import EmployeeContext from './component/EmployeeContext'
+import LoginContext from './component/LoginContext'
 
-const App = () => {
+// const App = () => {
 
   // const [isLoggedIn, setLoggedIn] = useState(false)
 
@@ -41,6 +45,17 @@ const App = () => {
   //   )
   // }
 
+  const RenderContent = () => {
+    const {user} = useContext(DataContext)
+          if(!user){
+              return <LoginContext />
+          }
+          else{
+              return user.role === 'client' ? <ClientContext /> : <EmployeeContext />
+          }
+      }
+
+  const App = () => {
   return (
     // <div className='bg-amber-500 h-screen'>
     // {/* <AppleCounter /> */}
@@ -70,9 +85,11 @@ const App = () => {
         <ContextThemeSetting />
       </ThemeProvider> */}
 
-      <UserProvider>
-        <ContextLearn />
-      </UserProvider>
+      
+
+    <DataProvider>
+      <RenderContent />
+    </DataProvider>
     </div>
   )
 
