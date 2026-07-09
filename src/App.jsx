@@ -21,50 +21,79 @@ import { DataContext, DataProvider } from './context/Context'
 import ClientContext from './component/ClientContext'
 import EmployeeContext from './component/EmployeeContext'
 import LoginContext from './component/LoginContext'
+import LoginContext2 from './context/LoginContext2'
+import { Data2Context } from './context/Context2'
+import Admin2 from './component/Admin2'
+import Employee2 from './component/Employee2'
 
 // const App = () => {
 
-  // const [isLoggedIn, setLoggedIn] = useState(false)
+// ------ conditional rendering with if/else and ternery for Login Logout page -------- //
+// const [isLoggedIn, setLoggedIn] = useState(false)
 
-  // return (
-  //   <div>
-  //     {isLoggedIn ? <Logout/> : <Login/>}
-  //   </div>
-  // )
+// return (
+//   <div>
+//     {isLoggedIn ? <Logout/> : <Login/>}
+//   </div>
+// )
 
-  // conditional rendering using if/else //
+// conditional rendering using if/else //
 
-  // if(isLoggedIn){
-  //   return (
-  //     <Logout/>
-  //   )
-  // }
-  // else{
-  //   return (
-  //     <Login/>
-  //   )
-  // }
+// if(isLoggedIn){
+//   return (
+//     <Logout/>
+//   )
+// }
+// else{
+//   return (
+//     <Login/>
+//   )
+// }
+// -------------------------------------------------------------------------------------------------//
 
-  const RenderContent = () => {
-    const {user} = useContext(DataContext)
-          if(!user){
-              return <LoginContext />
-          }
-          else{
-              return user.role === 'client' ? <ClientContext /> : <EmployeeContext />
-          }
-      }
 
-  const App = () => {
+// ---------------- this is for also employee/admin but from my side -----------------------------------//
+// const RenderContent = () => {
+//   const {user} = useContext(DataContext)
+//         if(!user){
+//             return <LoginContext />
+//         }
+//         else{
+//             return user.role === 'client' ? <ClientContext /> : <EmployeeContext />
+//         }
+//     }
+// -----------------------------------------------------------------------------------------------------//
+
+
+
+
+
+// -------------------------------------------- // 
+const App = () => {
+
+  //  ---------- for Admin/employee page explained by anurag sir -------------------//
+  const { valid, currentUser } = useContext(Data2Context)
+  console.log("valid or not", valid);
+
+  if (!valid) {
+    return <LoginContext2 />
+  }
+  // -------------------------------------------------------------------------------//
+
   return (
+
+    // ----------------- Apple counter with conditional rendering ---------//
     // <div className='bg-amber-500 h-screen'>
     // {/* <AppleCounter /> */}
     // {/* <AppleBasket /> */}
     // </div>
+    // --------------------------------------------------------------------//
 
 
-    // Routing //
+
     <div>
+
+      {/* --------------- Routing for web --------------------------------------- */}
       {/* <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -80,17 +109,30 @@ import LoginContext from './component/LoginContext'
         <Route path="*" element={<PageNotFound/>}/>
       </Routes> */}
       {/* <Home/> */}
+      {/* ------------------------------------------------------------------------------ */}
 
+
+      {/* ------------------- context practice for light/dark theme ---------------------- */}
       {/* <ThemeProvider>
         <ContextThemeSetting />
       </ThemeProvider> */}
+      {/* ---------------------------------------------------------------------------------- */}
 
-      
 
-    <DataProvider>
+      {/* ---------------- this is for also employee/admin but from my side ------------------------ */}
+      {/* <DataProvider>
       <RenderContent />
-    </DataProvider>
+    </DataProvider> */}
+      {/* ------------------------------------------------------------------------------------------- */}
+
+
+      {/* ------ for Admin/employee page explained by anurag sir ---------------- */}
+      {
+        (currentUser === "Admin") ? (<Admin2 />) : (<Employee2 />)
+      }
+
     </div>
+
   )
 
 }
